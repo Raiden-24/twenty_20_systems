@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 const authRoutes = require('./routes/auth');
 
 const app = express();
@@ -9,6 +10,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static files from client directory
+app.use(express.static(path.join(__dirname, '../client')));
 
 // MongoDB Connection
 const MONGODB_URI = 'mongodb+srv://amruthshivakumar:amruth242003@clusterbyamruth.tl44s.mongodb.net/portfolioDB?retryWrites=true&w=majority';
