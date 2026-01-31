@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Amruth Shivakumar - Aspiring Software Engineer">
+    <title>My Portfolio - Twenty20</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Portfolio Header -->
+    <header class="portfolio-header">
+        <h1 id="userName">My Portfolio</h1>
+        <p class="user-email" id="userEmail"></p>
+        <button id="logoutBtn" class="btn-logout">Logout</button>
+    </header>
+
+    <!-- Portfolio Content -->
+    <main class="container portfolio-content">
+        <!-- About Section -->
+        <section class="section-card">
+            <h2>About Me</h2>
+            <p>
+                Hello! I'm <strong>Amruth Shivakumar</strong>, an aspiring software engineer with a passion for building
+                innovative solutions
+                that solve real-world problems. I specialize in data science, machine learning, and full-stack
+                development.
+            </p>
+            <p>
+                My journey in technology has been driven by curiosity and a desire to create impactful applications.
+                I'm constantly learning and exploring new technologies to expand my skill set and stay at the forefront
+                of the industry.
+            </p>
+            <p>
+                <strong>Role:</strong> Aspiring Software Engineer<br>
+                <strong>Focus Areas:</strong> Machine Learning, Data Science, Web Development
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section-card">
+            <h2>Skills & Technologies</h2>
+            <p>Here are the key technologies and skills I work with:</p>
+            <div class="skills-grid">
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">SQL</div>
+                <div class="skill-tag">Machine Learning</div>
+                <div class="skill-tag">MongoDB</div>
+                <div class="skill-tag">Streamlit</div>
+                <div class="skill-tag">DSA</div>
+                <div class="skill-tag">OOP</div>
+                <div class="skill-tag">DBMS</div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section-card">
+            <h2>Featured Projects</h2>
+            <div class="project-item">
+                <h3>AI-Powered Customer Churn Prediction Platform</h3>
+                <p>
+                    Developed a comprehensive machine learning platform to predict customer churn using advanced
+                    algorithms.
+                    The platform analyzes customer behavior patterns and provides actionable insights to reduce churn
+                    rates.
+                    Built with Python, scikit-learn, and deployed using Streamlit for interactive visualizations.
+                </p>
+            </div>
+            <div class="project-item">
+                <h3>Explainable Drug Repurposing using Knowledge Graphs</h3>
+                <p>
+                    Created an innovative system for drug repurposing leveraging knowledge graphs and explainable AI
+                    techniques.
+                    The project integrates biomedical data to identify potential new therapeutic applications for
+                    existing drugs,
+                    making the decision-making process transparent and interpretable for medical researchers.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Check if user is logged in
+        const userData = localStorage.getItem('portfolioUser');
+        if (!userData) {
+            // Redirect to login if not authenticated
+            window.location.href = 'index.html';
+        } else {
+            // Display user email
+            try {
+                const user = JSON.parse(userData);
+                document.getElementById('userEmail').textContent = user.email;
+            } catch (error) {
+                console.error('Error parsing user data:', error);
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('portfolioUser');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+
+</html>
