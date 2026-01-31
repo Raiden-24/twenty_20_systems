@@ -225,7 +225,3 @@ MIT License
 ## 👨‍💻 Author
 
 Amruth Shivakumar
-
----
-
-Built with ❤️ for Twenty20 Systems
